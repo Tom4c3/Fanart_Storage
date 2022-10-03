@@ -1,3 +1,3 @@
 # Fanart_Storage
-もらったイラストの保管用リポジトリです．<br>
+今までにもらったイラストの紹介ページです．<br>
 https://tom4c3.github.io/Fanart_Storage/
