@@ -43,9 +43,15 @@
             object-fit: contain;
         }
         .modal-dialog-centered {
-           max-width: 70vw; /* ビューポートのn%まで拡大 */
-           max-height: 60vh; /* ビューポートのm%まで拡大 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            margin: 0;
+            padding: 30px; /* 追加 */
         }
+
+
 
     </style>
 
@@ -199,8 +205,30 @@
             img.addEventListener("click", function (event) {
                 const imgUrl = event.target.getAttribute("data-img-url");
                 popupImage.src = imgUrl;
+
+                const updateImageSize = () => {
+                    const windowHeight = window.innerHeight - 60; // 余白を考慮
+                    const windowWidth = window.innerWidth - 60; // 余白を考慮
+                    const aspectRatio = popupImage.naturalWidth / popupImage.naturalHeight;
+
+                    if (windowHeight / windowWidth > aspectRatio) {
+                        popupImage.style.height = "auto";
+                        popupImage.style.width = "100%";
+                        popupImage.style.maxHeight = `${windowHeight}px`;
+                    } else {
+                        popupImage.style.height = `${windowHeight}px`;
+                        popupImage.style.width = "auto";
+                        popupImage.style.maxWidth = `${windowWidth}px`;
+                    }
+                };
+
+                popupImage.addEventListener("load", updateImageSize);
+                window.addEventListener("resize", updateImageSize);
             });
         });
+
+
+
     </script>
 
 </body>
