@@ -51,6 +51,18 @@
             margin: 0;
             padding: 30px; /* 追加 */
         }
+
+            @media (max-width: 767px) {
+        .modal-dialog-centered {
+            padding: 5px; /* スマホの場合、余白を小さくする */
+        }
+    }
+    @media (min-width: 768px) {
+        .modal-dialog-centered {
+            padding: 20px; /* PCの場合、余白を大きくする */
+        }
+    }
+
         .modal-body {
             display: flex;
             justify-content: center;
@@ -67,6 +79,17 @@
             width: 100%;
             padding: 30px; /* 追加 */
         }
+
+            @media (max-width: 767px) {
+        .image-wrapper {
+            padding: 5px; /* スマホの場合、余白を小さくする */
+        }
+    }
+    @media (min-width: 768px) {
+        .image-wrapper {
+            padding: 20px; /* PCの場合、余白を大きくする */
+        }
+    }
 
 
     </style>
