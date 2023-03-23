@@ -50,8 +50,13 @@
             margin: 0;
             padding: 30px; /* 追加 */
         }
-
-
+        .modal-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 120px);
+            width: 100%;
+        }
 
     </style>
 
@@ -190,7 +195,8 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img id="popupImage" src="" style="width: 100%; height: auto;">
+                    <img id="popupImage" class="modal-image" src="">
+
                 </div>
             </div>
         </div>
@@ -206,29 +212,10 @@
                 const imgUrl = event.target.getAttribute("data-img-url");
                 popupImage.src = imgUrl;
 
-                const updateImageSize = () => {
-                    const windowHeight = window.innerHeight - 60; // 余白を考慮
-                    const windowWidth = window.innerWidth - 60; // 余白を考慮
-                    const aspectRatio = popupImage.naturalWidth / popupImage.naturalHeight;
-
-                    if (windowHeight / windowWidth > aspectRatio) {
-                        popupImage.style.height = "auto";
-                        popupImage.style.width = "100%";
-                        popupImage.style.maxHeight = `${windowHeight}px`;
-                    } else {
-                        popupImage.style.height = `${windowHeight}px`;
-                        popupImage.style.width = "auto";
-                        popupImage.style.maxWidth = `${windowWidth}px`;
-                    }
-                };
-
-                popupImage.addEventListener("load", updateImageSize);
-                window.addEventListener("resize", updateImageSize);
             });
         });
 
-
-
+ 
     </script>
 
 </body>
