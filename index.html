@@ -47,6 +47,7 @@
             justify-content: center;
             align-items: center;
             max-width: 100%;
+            min-width: 300px; /* 追加 */
             margin: 0;
             padding: 30px; /* 追加 */
         }
@@ -57,6 +58,16 @@
             height: calc(100vh - 120px);
             width: 100%;
         }
+
+        .image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 30px; /* 追加 */
+        }
+
 
     </style>
 
@@ -195,10 +206,12 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img id="popupImage" class="modal-image" src="">
+                    <div class="image-wrapper">
+                        <img id="popupImage" class="modal-image" src="">
 
+                    </div>
                 </div>
-            </div>
+                </div>
         </div>
     </div>
 
