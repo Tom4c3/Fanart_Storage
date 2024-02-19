@@ -21,10 +21,20 @@
             }
         }
 
-        .img-container img {
-            max-width: 100%;
-            max-height: 100%;
+        .img-container {
+            width: 100%; /* 必要に応じて調整 */
+            height: 350px; /* ここで縦幅を統一 */
+            overflow: hidden; /* はみ出た部分を隠す */
+            display: flex;
+            justify-content: center; /* 中央揃え */
+            align-items: center; /* 中央揃え */
         }
+
+            .img-container img {
+                height: 100%; /* コンテナの高さに合わせる */
+                width: auto; /* 幅は自動調整 */
+                object-fit: cover; /* 画像をカバーとして扱う */
+            }
 
         .modal-image {
             max-width: 100%;
@@ -214,8 +224,12 @@
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <div class="modal-body">
-                    <img id="popupImage" class="img-fluid modal-image" src="" alt="拡大表示画像">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center">
+                    <img src="" id="popupImage" class="img-fluid modal-image" alt="拡大表示画像">
                 </div>
             </div>
         </div>
